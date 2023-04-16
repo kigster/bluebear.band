@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="Made by 'tree'">
+    <title>Blue Bear Band - Spring 2023</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Koulen&family=Odibee+Sans&display=swap');
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <style type="text/css">
+        body {
+            font-family: 'Odibee Sans', cursive;
+            font-size: 24pt;
+            padding: 60px;
+            color: #F04;
+        }
+
+        h1 {
+            color: #ff2020;
+            text-shadow: 1px 1px 5px black;
+            text-align: center;
+            font-size: 50pt;
+            margin-top: 100px;
+            margin-bottom: 150px;
+        }
+
+        li {
+            margin-bottom: 30px;
+        }
+
+        audio {
+            min-width: 400px !important;
+            min-height: 80px;
+        }
+
+        strong {
+            color: #900;
+            text-shadow: #F00 0px 0px 5px;
+        }
+    </style>
+
+    <script language="javascript">
+        window.onload = function () {
+            $("audio").bind("play", function () {
+                $("audio").not(this).each(function (index, audio) {
+                    console.log(`Pausing ${audio} at index ${index}`);
+                    audio.pause();
+                });
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Blue Bear Band - Spring 2023</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <figcaption><strong>Rehearsal #1</strong>, April 10, 2023</figcaption>
+                <hr>
+                <audio class="audio-player shadow-lg p-3 mb-5 bg-white rounded" id="may-2nd" controls src="/share/bluebear/bb6/rehearsal-01.mp3">
+                    Your browser does not support the <code>audio</code> element.
+                </audio>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <hr>
+</body>
+
+</html>

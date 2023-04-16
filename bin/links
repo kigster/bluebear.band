@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+[[ $* =~ -n ]] && set -x
+
+[[ -d public ]] || {
+  echo "Please run this from the top of the prject."
+  exit 1
+}
+
+export project_root=$(pwd -P)
+
+function chdir() {
+  cd "$1" || {
+    echo "Can't cd into $1"
+    exit 1A
+  }
+}
+
+chdir public
+
+declare -a files
+mapfile -t files < <(find ${HOME}/share/bluebear/bb5 -name '*.mp3')
+
+chdir audio/bb5
+
+for file in "${files[@]}"; do
+  if [[ $* =~ -n ]] ; then
+    echo "ln -nfs ${file} . "
+  else
+    ln -nfs ${file} . 
+  fi
+done
+
+set +x
+
+chdir ${project_root}
